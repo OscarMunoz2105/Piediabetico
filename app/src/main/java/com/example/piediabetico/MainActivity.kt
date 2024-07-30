@@ -79,7 +79,7 @@ fun MainScreen() {
             }
         }
 
-        Section(title = "¿El paciente tiene riesgo de desarrollar neuropatía periférica si uno o más de los siguientes test es positivo?") {
+        Section(title = "El paciente tiene riesgo de desarrollar neuropatía periférica si uno o más de los siguientes test es positivo") {
             CheckboxItem(text = "Test Monofilamento", tag = 1, isChecked = checkboxValues[2]) {
                 checkboxValues[2].value = it
             }
@@ -91,7 +91,7 @@ fun MainScreen() {
             }
         }
 
-        Section(title = "¿El paciente cuenta con alteración vascular si uno o ambos pulsos están ausentes?") {
+        Section(title = "El paciente cuenta con alteración vascular si uno o ambos pulsos están ausentes") {
             CheckboxItem(text = "Pulso Tibial Posterior", tag = 1, isChecked = checkboxValues[5]) {
                 checkboxValues[5].value = it
             }
@@ -150,6 +150,7 @@ fun MainScreen() {
             onClick = {
                 calculating = true
                 score = calculateScore(checkboxValues)
+                checkboxValues.forEach { it.value = false } // Desmarcar todas las opciones
             },
             modifier = Modifier
                 .fillMaxWidth()
